@@ -12,7 +12,7 @@ export const action = async ({request}) => {
 
   //submit to DB
 
-  //return redirect('/posts');
+  return redirect('/posts');
 };
 
 function NewPost() {
