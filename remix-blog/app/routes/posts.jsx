@@ -1,10 +1,11 @@
-function Posts() {
-    return (
-        <div>
-            <h1>This is the posts route</h1>
-        </div>
-    )
+import { Outlet } from '@remix-run/react';
 
+function Posts() {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }
 
 export default Posts;
