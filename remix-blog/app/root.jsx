@@ -1,4 +1,9 @@
-import { Outlet, LiveReload, Link } from '@remix-run/react';
+import { Outlet, LiveReload, Link, Links} from '@remix-run/react';
+import globalStylesURL from '~/styles/global.css'
+
+export const links = () => [{
+  rel: "stylesheet", href: globalStylesURL
+}]
 
 export default function App() {
   return (
@@ -14,6 +19,7 @@ function Document({ children, title }) {
   return (
     <html lang="en">
       <head>
+        <Links /> 
         <title>{title ? title : 'Remix Blog...'}</title>
       </head>
       <body>
