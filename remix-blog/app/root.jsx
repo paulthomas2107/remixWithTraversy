@@ -1,19 +1,22 @@
 import { Outlet, LiveReload, Link, Links, Meta } from '@remix-run/react';
-import globalStylesURL from '~/styles/global.css'
+import globalStylesURL from '~/styles/global.css';
 
-export const links = () => [{
-  rel: "stylesheet", href: globalStylesURL
-}]
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: globalStylesURL,
+  },
+];
 
 export const meta = () => {
-  const description  = 'A cool blog built with Remix'
-  const keywords = 'remix, react, javascript'
-  
+  const description = 'A cool blog built with Remix';
+  const keywords = 'remix, react, javascript';
+
   return {
     description,
-    keywords
-  }
-}
+    keywords,
+  };
+};
 
 export default function App() {
   return (
@@ -30,9 +33,9 @@ function Document({ children, title }) {
     <html lang="en">
       <head>
         <meta charset="utf-8" />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <Links /> 
+        <Links />
         <title>{title ? title : 'Remix Blog...'}</title>
       </head>
       <body>
@@ -58,5 +61,17 @@ function Layout({ children }) {
       </nav>
       <div className="containerr">{children}</div>
     </>
+  );
+}
+
+export function ErrorBoundary({ error }) {
+  console.log(error);
+  return (
+    <Document>
+      <Layout>
+        <h1>Error: </h1>
+        <p>{error.message}</p>
+      </Layout>
+    </Document>
   );
 }
